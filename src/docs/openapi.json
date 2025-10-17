@@ -1,0 +1,123 @@
+﻿{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API Gestión de Matrículas Vehiculares",
+    "version": "1.0.0",
+    "description": "Entidad-Servicio-Controlador para Dueños, Vehículos y Matrículas con validaciones."
+  },
+  "servers": [{ "url": "http://localhost:3000" }],
+  "components": {
+    "schemas": {
+      "Dueno": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "nombres": { "type": "string" },
+          "apellidos": { "type": "string" },
+          "cedula": { "type": "string", "example": "0102030405" },
+          "direccion": { "type": "string" },
+          "telefono": { "type": "string" },
+          "email": { "type": "string" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" }
+        },
+        "required": ["nombres","apellidos","cedula","direccion"]
+      },
+      "Vehiculo": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "placa": { "type": "string", "example": "ABC-1234" },
+          "marca": { "type": "string" },
+          "modelo": { "type": "string" },
+          "anio": { "type": "integer" },
+          "color": { "type": "string" },
+          "duenoId": { "type": "integer" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" }
+        },
+        "required": ["placa","marca","modelo","anio","duenoId"]
+      },
+      "Matricula": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "numero": { "type": "string" },
+          "fechaEmision": { "type": "string", "example": "2025-01-10" },
+          "fechaExpiracion": { "type": "string", "example": "2026-01-09" },
+          "estado": { "type": "string", "enum": ["activa","vencida","anulada"] },
+          "vehiculoId": { "type": "integer" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" }
+        },
+        "required": ["numero","fechaEmision","fechaExpiracion","vehiculoId"]
+      }
+    },
+    "parameters": {
+      "idParam": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "integer" }
+      }
+    }
+  },
+  "paths": {
+    "/api/duenos": {
+      "get": {
+        "summary": "Listar dueños",
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Dueno" } } } } }
+        }
+      },
+      "post": {
+        "summary": "Crear dueño",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Dueno" } } } },
+        "responses": { "201": { "description": "Creado" } }
+      }
+    },
+    "/api/duenos/{id}": {
+      "get": { "summary": "Obtener dueño", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "responses": { "200": { "description": "OK" }, "404": { "description": "No encontrado" } } },
+      "put": { "summary": "Actualizar dueño", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Dueno" } } } }, "responses": { "200": { "description": "OK" } } },
+      "delete": { "summary": "Eliminar dueño", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "responses": { "204": { "description": "Eliminado" } } }
+    },
+
+    "/api/vehiculos": {
+      "get": {
+        "summary": "Listar vehículos",
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Vehiculo" } } } } }
+        }
+      },
+      "post": {
+        "summary": "Crear vehículo",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Vehiculo" } } } },
+        "responses": { "201": { "description": "Creado" } }
+      }
+    },
+    "/api/vehiculos/{id}": {
+      "get": { "summary": "Obtener vehículo", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "responses": { "200": { "description": "OK" }, "404": { "description": "No encontrado" } } },
+      "put": { "summary": "Actualizar vehículo", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Vehiculo" } } } }, "responses": { "200": { "description": "OK" } } },
+      "delete": { "summary": "Eliminar vehículo", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "responses": { "204": { "description": "Eliminado" } } }
+    },
+
+    "/api/matriculas": {
+      "get": {
+        "summary": "Listar matrículas",
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Matricula" } } } } }
+        }
+      },
+      "post": {
+        "summary": "Crear matrícula",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Matricula" } } } },
+        "responses": { "201": { "description": "Creado" } }
+      }
+    },
+    "/api/matriculas/{id}": {
+      "get": { "summary": "Obtener matrícula", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "responses": { "200": { "description": "OK" }, "404": { "description": "No encontrada" } } },
+      "put": { "summary": "Actualizar matrícula", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Matricula" } } } }, "responses": { "200": { "description": "OK" } } },
+      "delete": { "summary": "Eliminar matrícula", "parameters": [{ "$ref": "#/components/parameters/idParam" }], "responses": { "204": { "description": "Eliminado" } } }
+    }
+  }
+}

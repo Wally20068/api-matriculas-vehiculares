@@ -1,0 +1,128 @@
+{
+  "duenos": [
+    {
+      "id": 1,
+      "nombres": "Maria",
+      "apellidos": "Vega",
+      "cedula": "0912345678",
+      "direccion": "Calle 10 y Av 5",
+      "telefono": "0991112233",
+      "email": "maria.veg@test.com",
+      "createdAt": "2025-10-17T22:44:20.160Z",
+      "updatedAt": "2025-10-17T22:44:20.160Z"
+    },
+    {
+      "id": 2,
+      "nombres": "María Fernanda",
+      "apellidos": "González Vega",
+      "cedula": "0102030405",
+      "direccion": "Av. Américas 123",
+      "telefono": "0987654321",
+      "email": "maria@example.com",
+      "createdAt": "2025-10-17T22:44:52.808Z",
+      "updatedAt": "2025-10-17T22:44:52.808Z"
+    },
+    {
+      "id": 3,
+      "nombres": "Andrea",
+      "apellidos": "Torres Salazar",
+      "cedula": "0923456789",
+      "direccion": "Calle Larga y Benigno Malo",
+      "telefono": "0981122334",
+      "email": "andrea.torres@example.com",
+      "createdAt": "2025-10-17T22:54:57.624Z",
+      "updatedAt": "2025-10-17T22:54:57.624Z"
+    },
+    {
+      "id": 4,
+      "nombres": "Luis Alberto",
+      "apellidos": "Jimenez Ortiz",
+      "cedula": "0934567890",
+      "direccion": "Av. Remigio Crespo y Unidad Nacional",
+      "telefono": "0995566778",
+      "email": "luis.jimenez@example.com",
+      "createdAt": "2025-10-17T22:59:16.105Z",
+      "updatedAt": "2025-10-17T22:59:16.106Z"
+    },
+    {
+      "id": 5,
+      "nombres": "Carla Daniela",
+      "apellidos": "Mora Zamora",
+      "cedula": "0945678901",
+      "direccion": "Calle Sucre y Tarqui",
+      "telefono": "0983344556",
+      "email": "carla.mora@example.com",
+      "createdAt": "2025-10-17T22:59:37.600Z",
+      "updatedAt": "2025-10-17T22:59:37.601Z"
+    },
+    {
+      "id": 6,
+      "nombres": "Adrian",
+      "apellidos": "Bravo",
+      "cedula": "0107307803",
+      "direccion": "Ricaurte",
+      "telefono": "0987654321",
+      "email": "adrian@example.com",
+      "createdAt": "2025-10-17T23:23:08.537Z",
+      "updatedAt": "2025-10-17T23:23:08.537Z"
+    }
+  ],
+  "vehiculos": [
+    {
+      "id": 1,
+      "placa": "XYZ-1234",
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "anio": 2019,
+      "color": "Rojo",
+      "duenoId": 2,
+      "createdAt": "2025-10-17T22:45:11.161Z",
+      "updatedAt": "2025-10-17T22:45:11.161Z"
+    },
+    {
+      "id": 2,
+      "placa": "ABC-2345",
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "anio": 2019,
+      "color": "Plata",
+      "duenoId": 1,
+      "createdAt": "2025-10-17T23:03:30.042Z",
+      "updatedAt": "2025-10-17T23:03:30.043Z"
+    },
+    {
+      "id": 3,
+      "placa": "PCQ-4587",
+      "marca": "Hyundai",
+      "modelo": "Tucson",
+      "anio": 2022,
+      "color": "Negro",
+      "duenoId": 2,
+      "createdAt": "2025-10-17T23:04:04.051Z",
+      "updatedAt": "2025-10-17T23:04:04.051Z"
+    },
+    {
+      "id": 4,
+      "placa": "AAA-5132",
+      "marca": "Hyundai",
+      "modelo": "Tucson",
+      "anio": 2022,
+      "color": "Negro",
+      "duenoId": 2,
+      "createdAt": "2025-10-17T23:24:31.494Z",
+      "updatedAt": "2025-10-17T23:24:31.496Z"
+    }
+  ],
+  "matriculas": [
+    {
+      "id": 1,
+      "estado": "activa",
+      "numero": "MAT-00001",
+      "fechaEmision": "2025-01-10",
+      "fechaExpiracion": "2026-01-09",
+      "vehiculoId": 1,
+      "createdAt": "2025-10-17T22:45:27.932Z",
+      "updatedAt": "2025-10-17T22:45:27.932Z"
+    }
+  ]
+}
